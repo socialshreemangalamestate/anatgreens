@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10231c">
+  <title>Anant Greens | Premium Township in Bilaspur</title>
+  <link rel="preload" as="image" href="assets/optimized/01.webp">
+  <style>
+    :root {
+      --ink: #07130f;
+      --ink-2: #173027;
+      --leaf: #13a66b;
+      --leaf-2: #a3d95f;
+      --copper: #d9aa63;
+      --mist: #edf6ef;
+      --paper: #f7f5ed;
+      --sky: #d9edf6;
+      --line: rgba(16, 35, 28, 0.14);
+      --shadow: 0 28px 90px rgba(7, 19, 15, 0.2);
+      --radius: 8px;
+      --mouse-x: 50%;
+      --mouse-y: 20%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #07130f;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      pointer-events: none;
+      background: radial-gradient(520px circle at var(--mouse-x) var(--mouse-y), rgba(163, 217, 95, 0.13), transparent 48%);
+      mix-blend-mode: screen;
+      opacity: 0.76;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .site-shell {
+      background:
+        linear-gradient(90deg, rgba(16, 35, 28, 0.06) 1px, transparent 1px) 0 0 / 84px 84px,
+        linear-gradient(rgba(16, 35, 28, 0.04) 1px, transparent 1px) 0 0 / 84px 84px,
+        var(--paper);
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 40;
+      width: 100%;
+      height: 3px;
+      transform-origin: left;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--leaf-2), var(--copper), var(--sky));
+      box-shadow: 0 0 18px rgba(163, 217, 95, 0.6);
+    }
+
+    .nav {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      z-index: 20;
+      width: min(1180px, calc(100% - 28px));
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+      padding: 10px 12px 10px 18px;
+      color: white;
+      background: rgba(7, 19, 15, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      backdrop-filter: blur(24px) saturate(150%);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 50%;
+      color: #08140f;
+      background: linear-gradient(135deg, white, var(--leaf-2));
+      font-weight: 900;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.9rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .nav-links a,
+    .nav-cta,
+    .mobile-toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-cta:hover,
+    .mobile-toggle:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .nav-cta {
+      background: white;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(7, 19, 15, 0.08);
+    }
+
+    .nav-cta:hover {
+      color: var(--ink);
+      background: var(--sky);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 0;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      color: white;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("assets/optimized/01.webp") center / cover no-repeat;
+      transform: scale(1.02);
+      animation: slowDrift 18s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(4, 13, 10, 0.92), rgba(4, 13, 10, 0.46) 48%, rgba(4, 13, 10, 0.12)),
+        linear-gradient(0deg, rgba(4, 13, 10, 0.92), rgba(4, 13, 10, 0.06) 52%),
+        radial-gradient(circle at 75% 20%, rgba(163, 217, 95, 0.24), transparent 28%);
+    }
+
+    @keyframes slowDrift {
+      from { transform: scale(1.02) translateX(-8px); }
+      to { transform: scale(1.07) translateX(8px); }
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 148px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      color: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-title-line {
+      display: block;
+    }
+
+    .hero-title-line:last-child {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.78);
+      text-shadow: none;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--leaf-2);
+      box-shadow: 0 0 0 8px rgba(139, 179, 91, 0.16);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 880px;
+      margin-top: 18px;
+      font-size: clamp(4rem, 10vw, 9.6rem);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(1rem, 1.8vw, 1.26rem);
+      line-height: 1.65;
+    }
+
+    .hero-actions,
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #07130f, #173027);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(16, 35, 28, 0.18);
+    }
+
+    .btn.light {
+      background: linear-gradient(135deg, white, #eaf5ef);
+      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn.ghost {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn.copper {
+      background: linear-gradient(135deg, var(--copper), #f1d69d);
+      border-color: transparent;
+      color: #19120b;
+    }
+
+    .stats-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-stack {
+      display: grid;
+      gap: 14px;
+      perspective: 1200px;
+    }
+
+    .hero-media-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+      transform: rotateX(0deg) rotateY(-4deg);
+      transform-style: preserve-3d;
+    }
+
+    .hero-media-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 330px;
+      object-fit: cover;
+    }
+
+    .hero-media-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(7, 19, 15, 0.68), transparent 62%);
+    }
+
+    .hero-chip {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1;
+      display: grid;
+      gap: 3px;
+      min-width: 170px;
+      padding: 14px;
+      color: white;
+      background: rgba(7, 19, 15, 0.56);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-chip strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .hero-chip span {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .stat {
+      min-height: 138px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .signal-strip {
+      overflow: hidden;
+      color: white;
+      background: #07130f;
+      border-block: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .signal-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+
+    .signal-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    .signal-track span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--leaf-2);
+      box-shadow: 0 0 18px rgba(163, 217, 95, 0.72);
+    }
+
+    @keyframes ticker {
+      to { transform: translateX(-50%); }
+    }
+
+    .stat strong {
+      display: block;
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 4.2vw, 4rem);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 9px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .scroll-cue {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 52px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .scroll-cue::before {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .section {
+      padding: clamp(74px, 10vw, 128px) 0;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      margin-bottom: 13px;
+      color: var(--leaf);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .section-title {
+      max-width: 780px;
+      color: var(--ink);
+      font-size: clamp(2.6rem, 6vw, 6.1rem);
+      font-weight: 500;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: rgba(16, 35, 28, 0.72);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 52px;
+      align-items: center;
+    }
+
+    .image-slab {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .image-slab img,
+    .feature-image img,
+    .gallery-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-slab::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      height: 110px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(16, 35, 28, 0.5);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+    }
+
+    .slab-note {
+      position: absolute;
+      right: 36px;
+      bottom: 42px;
+      left: 36px;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: white;
+    }
+
+    .slab-note strong {
+      font-size: 1.1rem;
+    }
+
+    .slab-note span {
+      max-width: 280px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .text-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .line-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .line-item b {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: white;
+      background: var(--ink);
+      border-radius: 50%;
+      font-size: 0.8rem;
+    }
+
+    .line-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .line-item p {
+      margin: 0;
+      color: rgba(16, 35, 28, 0.68);
+      line-height: 1.65;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      grid-auto-rows: minmax(210px, auto);
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .bento-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      padding: clamp(20px, 3vw, 30px);
+      border: 1px solid rgba(7, 19, 15, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 18px 60px rgba(7, 19, 15, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .bento-card.dark {
+      color: white;
+      background: linear-gradient(135deg, #07130f, #173027);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .bento-card.image {
+      padding: 0;
+      min-height: 454px;
+      grid-row: span 2;
+    }
+
+    .bento-card.image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bento-card.image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(7, 19, 15, 0.72), transparent 60%);
+    }
+
+    .bento-card .mini-label {
+      color: var(--leaf);
+      font-size: 0.72rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .bento-card.dark .mini-label {
+      color: var(--leaf-2);
+    }
+
+    .bento-card strong {
+      display: block;
+      margin-top: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 4.6rem);
+      line-height: 0.95;
+      font-weight: 500;
+    }
+
+    .bento-card p {
+      margin: 18px 0 0;
+      color: rgba(16, 35, 28, 0.66);
+      line-height: 1.65;
+    }
+
+    .bento-card.dark p {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .bento-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      z-index: 1;
+      padding: 18px;
+      color: white;
+      background: rgba(7, 19, 15, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+    }
+
+    .bento-overlay strong {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .bento-overlay p {
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 8px;
+    }
+
+    .dark-band {
+      color: white;
+      background: var(--ink);
+    }
+
+    .dark-band .section-kicker {
+      color: var(--leaf-2);
+    }
+
+    .dark-band .section-title {
+      color: white;
+    }
+
+    .dark-band .section-copy {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 44px;
+    }
+
+    .amenity {
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      border-radius: var(--radius);
+      background: #111;
+      transform: translateZ(0);
+    }
+
+    .amenity img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms ease;
+    }
+
+    .amenity:hover img {
+      transform: scale(1.06);
+    }
+
+    .amenity:hover {
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .amenity::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(5, 16, 12, 0.88), rgba(5, 16, 12, 0.04) 62%);
+    }
+
+    .amenity-content {
+      position: relative;
+      z-index: 1;
+      padding: 22px;
+    }
+
+    .amenity-content span {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--leaf-2);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .amenity-content h3 {
+      font-size: 1.65rem;
+      font-weight: 500;
+    }
+
+    .amenity-content p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .feature {
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .feature span {
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .gallery-head {
+      display: grid;
+      grid-template-columns: 0.9fr 1fr;
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      grid-auto-rows: 260px;
+      gap: 14px;
+    }
+
+    .gallery-tile {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #ddd;
+      box-shadow: 0 16px 50px rgba(7, 19, 15, 0.1);
+    }
+
+    .gallery-tile img {
+      transition: transform 700ms ease, filter 700ms ease;
+    }
+
+    .gallery-tile:hover img {
+      transform: scale(1.05);
+      filter: saturate(1.08) contrast(1.02);
+    }
+
+    .gallery-tile.large {
+      grid-row: span 2;
+    }
+
+    .gallery-tile.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-tile span {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 8px 10px;
+      color: white;
+      background: rgba(16, 35, 28, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      backdrop-filter: blur(12px);
+    }
+
+    .map-zone {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(19, 166, 107, 0.16), transparent 28%),
+        linear-gradient(180deg, #f7faf7 0%, #eaf2eb 100%);
+    }
+
+    .tabs {
+      margin-top: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+
+    .tab-controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+      background: rgba(7, 19, 15, 0.08);
+    }
+
+    .tab-button {
+      min-height: 62px;
+      border: 0;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      color: rgba(16, 35, 28, 0.64);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .tab-button[aria-selected="true"] {
+      color: white;
+      background: linear-gradient(135deg, var(--ink), var(--ink-2));
+      box-shadow: 0 12px 34px rgba(7, 19, 15, 0.18);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 18px;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .map-frame {
+      min-height: 640px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #dde8df;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 640px;
+      border: 0;
+    }
+
+    .map-card {
+      min-height: 640px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--line);
+    }
+
+    .map-copy,
+    .map-visual {
+      background: white;
+    }
+
+    .map-copy {
+      padding: clamp(26px, 5vw, 54px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .map-copy h3 {
+      font-size: clamp(2.4rem, 4vw, 4.9rem);
+      font-weight: 500;
+    }
+
+    .map-copy p {
+      color: rgba(16, 35, 28, 0.7);
+      line-height: 1.75;
+    }
+
+    .nearby {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nearby li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+      color: rgba(16, 35, 28, 0.68);
+    }
+
+    .nearby strong {
+      color: var(--ink);
+    }
+
+    .map-visual {
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+      object-fit: cover;
+    }
+
+    .pin {
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      width: 82px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%);
+      color: white;
+      background: rgba(16, 35, 28, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      font-weight: 900;
+      box-shadow: 0 0 0 18px rgba(38, 116, 81, 0.18);
+    }
+
+    .contact-band {
+      color: white;
+      background: linear-gradient(135deg, var(--ink), #20342d 54%, #725a34);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-grid .section-title {
+      color: white;
+    }
+
+    .contact-grid .section-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .contact-facts {
+      display: grid;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .contact-fact {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-fact span {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-fact strong {
+      color: white;
+      line-height: 1.45;
+    }
+
+    form {
+      padding: clamp(20px, 4vw, 34px);
+      color: var(--ink);
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: rgba(16, 35, 28, 0.65);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      min-height: 52px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      color: var(--ink);
+      outline: 0;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--leaf);
+      box-shadow: 0 0 0 4px rgba(38, 116, 81, 0.12);
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .form-note {
+      margin: 14px 0 0;
+      color: rgba(16, 35, 28, 0.58);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-bottom: 14px;
+      padding: 13px 14px;
+      border-radius: var(--radius);
+      background: #fff3cd;
+      color: #6e4d00;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .form-feedback.show {
+      display: block;
+    }
+
+    footer {
+      padding: 34px 0;
+      color: rgba(255, 255, 255, 0.6);
+      background: #091611;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-weight: 800;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        grid-template-columns: auto auto;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+        justify-self: end;
+      }
+
+      .nav.open .nav-links {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: stretch;
+      }
+
+      .hero-grid,
+      .split,
+      .gallery-head,
+      .contact-grid,
+      .map-card,
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media-card {
+        transform: none;
+      }
+
+      .stats-panel {
+        max-width: 680px;
+      }
+
+      .amenity-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-strip,
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-tile.large,
+      .gallery-tile.wide {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .map-visual img {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        top: 10px;
+        width: calc(100% - 20px);
+        padding-left: 12px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hero-inner,
+      .wrap {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .hero-inner {
+        padding-top: 118px;
+      }
+
+      h1 {
+        font-size: clamp(3.35rem, 18vw, 5.4rem);
+      }
+
+      .hero-actions,
+      .button-row,
+      .footer-grid {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .stats-panel,
+      .amenity-grid,
+      .feature-strip,
+      .gallery,
+      .form-grid,
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-card.image {
+        min-height: 380px;
+        grid-row: auto;
+      }
+
+      .signal-track span {
+        padding: 14px 18px;
+        font-size: 0.72rem;
+      }
+
+      .stat {
+        min-height: 116px;
+      }
+
+      .image-slab,
+      .amenity,
+      .map-frame,
+      .map-card {
+        min-height: auto;
+      }
+
+      .image-slab {
+        height: 440px;
+      }
+
+      .slab-note {
+        display: block;
+      }
+
+      .slab-note span {
+        margin-top: 8px;
+      }
+
+      .map-frame iframe {
+        height: 560px;
+      }
+
+      .tab-panel {
+        padding: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+    <header class="nav" id="siteNav">
+      <a class="brand" href="#top" aria-label="Anant Greens home">
+        <span class="brand-mark">AG</span>
+        <span class="brand-text">
+          <strong>Anant Greens</strong>
+          <span>Breathe Life, Beautifully</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#story">Story</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#explore">Map Tab</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Book Site Visit</a>
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Anant Greens hero">
+        <div class="hero-inner">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow"><span class="pulse-dot"></span> Shri Anant Creation Presents</div>
+              <h1><span class="hero-title-line">Anant</span> <span class="hero-title-line">Greens</span></h1>
+              <p class="hero-copy">A 6-acre signature township in Ashok Nagar, Sarkanda, Bilaspur. Planned beside Patrakar Colony and aligned with the upcoming 100-feet Second Gaurav Path, it is designed for plots, custom bungalows, and a green life that can hold three generations.</p>
+              <div class="hero-actions">
+                <a class="btn light" href="#explore">Explore Map Tab</a>
+                <a class="btn ghost" href="https://rahulshukla7024.github.io/Anant-Greens/#interactive-layout" target="_blank" rel="noopener">Open Interactive Layout</a>
+              </div>
+            </div>
+            <aside class="hero-stack" aria-label="Project highlights">
+              <div class="hero-media-card">
+                <img src="assets/optimized/02.webp" alt="Anant Greens entry experience" decoding="async" fetchpriority="high">
+                <div class="hero-chip">
+                  <strong>Live Green</strong>
+                  <span>Premium plotted community</span>
+                </div>
+              </div>
+              <div class="stats-panel">
+                <div class="stat"><strong>6</strong><span>Acres of planned green township</span></div>
+                <div class="stat"><strong>100'</strong><span>Second Gaurav Path frontage</span></div>
+                <div class="stat"><strong>3</strong><span>Generation lifestyle planning</span></div>
+                <div class="stat"><strong>RERA</strong><span>PCGRERA270326002073</span></div>
+              </div>
+            </aside>
+          </div>
+          <div class="scroll-cue">Scroll to discover the township</div>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Project signal strip">
+        <div class="signal-track">
+          <span>6 Acre Township</span>
+          <span>Ashok Nagar, Sarkanda</span>
+          <span>Beside Patrakar Colony</span>
+          <span>100 Feet Second Gaurav Path</span>
+          <span>Plots and Custom Bungalows</span>
+          <span>RERA PCGRERA270326002073</span>
+          <span>6 Acre Township</span>
+          <span>Ashok Nagar, Sarkanda</span>
+          <span>Beside Patrakar Colony</span>
+          <span>100 Feet Second Gaurav Path</span>
+          <span>Plots and Custom Bungalows</span>
+          <span>RERA PCGRERA270326002073</span>
+        </div>
+      </section>
+
+      <section class="section" id="story">
+        <div class="wrap split">
+          <div class="reveal">
+            <p class="section-kicker">The Township Idea</p>
+            <h2 class="section-title">Not a colony. A living landscape.</h2>
+            <p class="section-copy">Anant Greens is shaped around the simple belief that nature should not be an add-on. It should be the everyday condition of home: shaded arrivals, landscaped courts, active recreation, and streets that feel calm even as the city grows around them.</p>
+            <div class="text-list">
+              <div class="line-item">
+                <b>01</b>
+                <div>
+                  <strong>Designed for long ownership</strong>
+                  <p>Plots and bungalow opportunities inside a protected, premium community made for families that think beyond one life stage.</p>
+                </div>
+              </div>
+              <div class="line-item">
+                <b>02</b>
+                <div>
+                  <strong>Placed in a growth corridor</strong>
+                  <p>Ashok Nagar, Sarkanda puts residents close to key education, healthcare, and institutional landmarks while staying rooted in a greener setting.</p>
+                </div>
+              </div>
+              <div class="line-item">
+                <b>03</b>
+                <div>
+                  <strong>Engineered by technical planners</strong>
+                  <p>The masterplan focuses on efficient access, memorable entry experiences, landscape density, and amenity spaces that work every day.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figure class="image-slab reveal">
+            <img src="assets/optimized/06.webp" alt="Anant Greens clubhouse landscape" loading="lazy" decoding="async">
+            <figcaption class="slab-note">
+              <strong>Green architecture, not decoration.</strong>
+              <span>Glass, timber warmth, palms, courts, and garden edges create the tone of the development.</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="wrap bento-grid reveal">
+          <article class="bento-card dark">
+            <div>
+              <span class="mini-label">Urban Edge</span>
+              <strong>Second Gaurav Path</strong>
+            </div>
+            <p>Positioned for Bilaspur's next movement corridor while keeping the township interior calm, planted, and residential.</p>
+          </article>
+          <article class="bento-card">
+            <div>
+              <span class="mini-label">Ownership Format</span>
+              <strong>Plots + Bungalows</strong>
+            </div>
+            <p>Choose the land story first, then shape the home around your family’s rhythm.</p>
+          </article>
+          <article class="bento-card image">
+            <img src="assets/optimized/11.webp" alt="Anant Greens landscaped lifestyle render" loading="lazy" decoding="async">
+            <div class="bento-overlay">
+              <strong>Club Life</strong>
+              <p>Wellness, sport, gardens, and social spaces form the everyday core.</p>
+            </div>
+          </article>
+          <article class="bento-card">
+            <div>
+              <span class="mini-label">Neighbourhood</span>
+              <strong>Sarkanda Growth Belt</strong>
+            </div>
+            <p>Near education, healthcare, institutional, and residential landmarks that make daily life easier.</p>
+          </article>
+          <article class="bento-card dark">
+            <div>
+              <span class="mini-label">Promise</span>
+              <strong>3 Generations</strong>
+            </div>
+            <p>A masterplan made to age gracefully with children, working adults, and elders.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-band" id="amenities">
+        <div class="wrap">
+          <div class="reveal">
+            <p class="section-kicker">Amenities</p>
+            <h2 class="section-title">Everyday resort energy, without leaving home.</h2>
+            <p class="section-copy">The township blends movement, wellness, and quiet green pauses. It is built for children, parents, and grandparents to each have a place that feels naturally theirs.</p>
+          </div>
+          <div class="amenity-grid">
+            <article class="amenity reveal">
+              <img src="assets/optimized/08.webp" alt="Anant Greens central landscaped court" loading="lazy" decoding="async">
+              <div class="amenity-content">
+                <span>Landscape</span>
+                <h3>Garden courts</h3>
+                <p>Layered planting, shaded paths, and open pockets for slow mornings and evening walks.</p>
+              </div>
+            </article>
+            <article class="amenity reveal">
+              <img src="assets/optimized/Badminton_.webp" alt="Indoor badminton court" loading="lazy" decoding="async">
+              <div class="amenity-content">
+                <span>Sport</span>
+                <h3>Indoor badminton</h3>
+                <p>A professional scale indoor court for year-round active recreation.</p>
+              </div>
+            </article>
+            <article class="amenity reveal">
+              <img src="assets/optimized/Gym.webp" alt="Anant Greens gymnasium" loading="lazy" decoding="async">
+              <div class="amenity-content">
+                <span>Wellness</span>
+                <h3>Fitness studio</h3>
+                <p>A warm, contemporary gym environment placed inside the community club experience.</p>
+              </div>
+            </article>
+            <article class="amenity reveal">
+              <img src="assets/optimized/04.webp" alt="Anant Greens internal avenue" loading="lazy" decoding="async">
+              <div class="amenity-content">
+                <span>Arrival</span>
+                <h3>Signature streets</h3>
+                <p>Premium internal avenues with planted edges, paver textures, and a composed arrival sequence.</p>
+              </div>
+            </article>
+          </div>
+          <div class="feature-strip reveal">
+            <div class="feature"><strong>For children</strong><span>Open, landscaped activity zones and community spaces designed for safe discovery.</span></div>
+            <div class="feature"><strong>For adults</strong><span>Fitness, sport, and social infrastructure close enough to become routine.</span></div>
+            <div class="feature"><strong>For elders</strong><span>Walkable greens, calm seating pockets, and a quieter rhythm inside the city.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="wrap">
+          <div class="gallery-head reveal">
+            <div>
+              <p class="section-kicker">Visual Tour</p>
+              <h2 class="section-title">A township with a front door you remember.</h2>
+            </div>
+            <p class="section-copy">These are the project visuals from the image folder, arranged as a fast architectural walkthrough: arrival, clubhouse, garden, active spaces, and the crafted streetscape.</p>
+          </div>
+          <div class="gallery">
+            <figure class="gallery-tile large reveal"><img src="assets/optimized/02.webp" alt="Anant Greens entrance in daylight" loading="lazy" decoding="async"><span>Arrival gate</span></figure>
+            <figure class="gallery-tile reveal"><img src="assets/optimized/07.webp" alt="Anant Greens garden path" loading="lazy" decoding="async"><span>Garden edge</span></figure>
+            <figure class="gallery-tile reveal"><img src="assets/optimized/09.webp" alt="Anant Greens landscape view" loading="lazy" decoding="async"><span>Green courts</span></figure>
+            <figure class="gallery-tile wide reveal"><img src="assets/optimized/10.webp" alt="Anant Greens community landscape" loading="lazy" decoding="async"><span>Community life</span></figure>
+            <figure class="gallery-tile reveal"><img src="assets/optimized/12.webp" alt="Anant Greens premium render" loading="lazy" decoding="async"><span>Township detail</span></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section map-zone" id="explore">
+        <div class="wrap">
+          <div class="reveal">
+            <p class="section-kicker">Interactive Map Tab</p>
+            <h2 class="section-title">Switch between plot layout and location intelligence.</h2>
+            <p class="section-copy">The first tab embeds your existing interactive layout. The second tab uses your Google link as the primary location action, with local landmark context for visitors who want to understand the site quickly.</p>
+          </div>
+          <div class="tabs reveal">
+            <div class="tab-controls" role="tablist" aria-label="Explore Anant Greens maps">
+              <button class="tab-button" id="layoutTab" type="button" role="tab" aria-selected="true" aria-controls="layoutPanel" data-tab="layoutPanel">Interactive Layout</button>
+              <button class="tab-button" id="locationTab" type="button" role="tab" aria-selected="false" aria-controls="locationPanel" data-tab="locationPanel">Google Location</button>
+            </div>
+            <section class="tab-panel active" id="layoutPanel" role="tabpanel" aria-labelledby="layoutTab">
+              <div class="map-frame">
+                <iframe data-src="https://rahulshukla7024.github.io/Anant-Greens/#interactive-layout" title="Anant Greens interactive layout" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="button-row">
+                <a class="btn" href="https://rahulshukla7024.github.io/Anant-Greens/#interactive-layout" target="_blank" rel="noopener">Open Layout Fullscreen</a>
+              </div>
+            </section>
+            <section class="tab-panel" id="locationPanel" role="tabpanel" aria-labelledby="locationTab">
+              <div class="map-card">
+                <div class="map-copy">
+                  <p class="section-kicker">Site Location</p>
+                  <h3>Ashok Nagar, Sarkanda</h3>
+                  <p>Use the Google link for live directions, sharing, and route planning. The project is positioned beside Patrakar Colony with access to major Bilaspur landmarks.</p>
+                  <ul class="nearby">
+                    <li><span>SECL Headquarters</span><strong>Close access</strong></li>
+                    <li><span>Apollo Hospital</span><strong>Nearby</strong></li>
+                    <li><span>Brilliant Public School</span><strong>Nearby</strong></li>
+                    <li><span>DLS College</span><strong>Nearby</strong></li>
+                    <li><span>Guru Ghasidas University</span><strong>Direct route</strong></li>
+                    <li><span>Patrakar Colony</span><strong>Beside site</strong></li>
+                  </ul>
+                  <div class="button-row">
+                    <a class="btn copper" href="https://share.google/izvbR6SzeVCJeks29" target="_blank" rel="noopener">Open Google Map</a>
+                    <a class="btn" href="#contact">Plan a Site Visit</a>
+                  </div>
+                </div>
+                <div class="map-visual" aria-hidden="true">
+                  <img src="assets/optimized/03.webp" alt="" loading="lazy" decoding="async">
+                  <div class="pin">SITE</div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-band" id="contact">
+        <div class="wrap contact-grid">
+          <div class="reveal">
+            <p class="section-kicker">Enquiry</p>
+            <h2 class="section-title">Bring the family. Walk the future.</h2>
+            <p class="section-copy">Register interest for plots, custom bungalow possibilities, pricing conversations, or a private site visit at Anant Greens.</p>
+            <div class="contact-facts">
+              <div class="contact-fact"><span>Developer</span><strong>Shri Anant Creation</strong></div>
+              <div class="contact-fact"><span>Address</span><strong>Ashok Nagar, Sarkanda, Bilaspur, Chhattisgarh. Beside Patrakar Colony.</strong></div>
+              <div class="contact-fact"><span>Phone</span><strong>+91 91832 44419 / +91 97522 44419</strong></div>
+            </div>
+          </div>
+          <form class="reveal" id="enquiryForm">
+            <div class="form-feedback" id="formFeedback"></div>
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required>
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="+91" required>
+              </label>
+              <label class="full">
+                Email
+                <input type="email" name="email" placeholder="you@example.com">
+              </label>
+              <label class="full">
+                Interest
+                <textarea name="message" placeholder="Tell us if you are interested in a plot, bungalow, map walkthrough, or site visit."></textarea>
+              </label>
+            </div>
+            <div class="button-row">
+              <button class="btn" type="submit">Submit Enquiry</button>
+              <a class="btn copper" href="tel:+919183244419">Call Now</a>
+            </div>
+            <p class="form-note">The form is ready for a Google Sheets or CRM endpoint. Until that endpoint is added, it shows a local confirmation and keeps the site fully usable.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div>Anant Greens. RERA: PCGRERA270326002073.</div>
+        <div class="footer-links">
+          <a href="#story">Story</a>
+          <a href="#amenities">Amenities</a>
+          <a href="#explore">Maps</a>
+          <a href="Anant%20Greens%20(E-%20Brochure)%20(1).pdf" target="_blank" rel="noopener">Brochure</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const progressBar = document.getElementById("progressBar");
+    const nav = document.getElementById("siteNav");
+    const mobileToggle = document.getElementById("mobileToggle");
+
+    const updateProgress = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+    };
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+
+    window.addEventListener("pointermove", (event) => {
+      document.documentElement.style.setProperty("--mouse-x", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${event.clientY}px`);
+    }, { passive: true });
+
+    mobileToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+    const layoutIframe = document.querySelector("#layoutPanel iframe");
+    const loadInteractiveLayout = () => {
+      if (layoutIframe && !layoutIframe.src) {
+        layoutIframe.src = layoutIframe.dataset.src;
+      }
+    };
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach((item) => item.setAttribute("aria-selected", "false"));
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+        button.setAttribute("aria-selected", "true");
+        document.getElementById(button.dataset.tab).classList.add("active");
+        if (button.dataset.tab === "layoutPanel") {
+          loadInteractiveLayout();
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    const mapObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        loadInteractiveLayout();
+        mapObserver.disconnect();
+      }
+    }, { rootMargin: "360px 0px" });
+
+    const exploreSection = document.getElementById("explore");
+    if (exploreSection) {
+      mapObserver.observe(exploreSection);
+    }
+
+    const form = document.getElementById("enquiryForm");
+    const feedback = document.getElementById("formFeedback");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = new FormData(form).get("name") || "there";
+      feedback.textContent = `Thank you, ${name}. Your enquiry is captured on this page. Connect a Google Sheets endpoint when you are ready for live submissions.`;
+      feedback.classList.add("show");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
